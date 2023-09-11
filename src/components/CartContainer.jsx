@@ -3,7 +3,11 @@ import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
 
 const CartContainer = () => {
-  const { cartItems, total, amount } = useSelector((state) => state.cart);
+  const { cartItems, total, amount } = useSelector((store) => {
+    console.log(store);
+    return store.cart;
+  });
+  console.log(amount);
 
   if (amount < 1) {
     return (
